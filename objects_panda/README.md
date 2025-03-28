@@ -14,7 +14,7 @@ pip install panda3d
 ```
 For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
 
-### 1. Plugin Installation
+### Plugin Installation
 
 Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `objects_panda` folder from the repository.
 
@@ -53,6 +53,14 @@ Instead of manually copying the plugin files, you can use **Git sparse checkout*
    ```bash
    export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/objects_panda
    ```
+
+### Upload Objects
+
+Upload egg objects from folder objs to the table #Objects at stimulus schema
+
+```bash
+python upload_objects.py
+```
 
 ## Plugin Components
 

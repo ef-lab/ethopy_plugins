@@ -1,11 +1,9 @@
 local_conf*.json
 /mysql-docker
-/ethopy_package
 *.log
 /docker
 .DS_Store
-/temp
-test.*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -25,7 +23,6 @@ dist/
 downloads/
 private/
 eggs/
-.eggs/
 lib/
 lib64/
 parts/
