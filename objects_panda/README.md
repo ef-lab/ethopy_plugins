@@ -49,6 +49,10 @@ Instead of manually copying the plugin files, you can use **Git sparse checkout*
    ```
    If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
 
+6. **Add Path to the plugins**
+   ```bash
+   export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/objects_panda
+   ```
 
 ## Plugin Components
 
