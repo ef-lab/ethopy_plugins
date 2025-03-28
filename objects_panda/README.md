@@ -22,13 +22,13 @@ Instead of manually copying the plugin files, you can use **Git sparse checkout*
 
 1. **Initialize a new Git repository:**
    ```bash
-   mkdir ethopy_plugins && cd ethopy_plugins
+   mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
    git init
    ```
 
 2. **Add the remote repository:**
    ```bash
-   git remote add origin https://github.com/user/repository.git
+   git remote add origin https://github.com/ef-lab/ethopy_plugins
    ```
    Replace `user/repository.git` with the actual GitHub repository URL.
 
@@ -39,9 +39,9 @@ Instead of manually copying the plugin files, you can use **Git sparse checkout*
 
 4. **Specify the folder to fetch:**
    ```bash
-   echo "path/to/objects_panda" >> .git/info/sparse-checkout
+   echo "objects_panda" >> .git/info/sparse-checkout
    ```
-   Replace `path/to/objects_panda` with the actual path inside the repository.
+   Replace `objects_panda` with the actual path inside the repository.
 
 5. **Pull the specified folder:**
    ```bash
@@ -49,17 +49,6 @@ Instead of manually copying the plugin files, you can use **Git sparse checkout*
    ```
    If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
 
-### 2. Task Configuration
-
-Copy the task configuration to your preferred location:
-
-```bash
-# Create tasks directory
-mkdir -p ~/.ethopy/tasks
-
-# Copy task configuration
-cp panda_test.py ~/.ethopy/tasks/
-```
 
 ## Plugin Components
 
