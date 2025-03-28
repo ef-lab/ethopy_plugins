@@ -62,7 +62,7 @@ for irep in range(0, reps):
 
         conditions += exp.make_conditions(
             stim_class=panda_obj,
-            stim_periods=["Cue", "Delay", "Response"],
+            stim_periods=["Cue", "Response"],
             conditions={
                 **block.dict(),
                 "Cue": {
@@ -83,20 +83,11 @@ for irep in range(0, reps):
                     "obj_tilt": 0,
                     "obj_yaw": 0,
                 },
-                "Delay": {
-                    "obj_id": cue_obj[idx],
-                    "obj_dur": 240000,
-                    "obj_pos_x": 0,
-                    "obj_mag": 0.4,
-                    "obj_rot": (rot_f(), rot_f()),
-                    "obj_tilt": 0,
-                    "obj_yaw": 0,
-                },
                 "reward_port": rew_prob[idx],
                 "response_port": rew_prob[idx],
                 "cue_ready": 100,
                 "cue_duration": [240000, 1000],
-                "delay_duration": 2000,
+                "delay_duration": 100,
                 "response_duration": 5000,
                 "reward_duration": 2000,
                 "punish_duration": 500,
@@ -127,7 +118,7 @@ for irep in range(0, reps):
 
         conditions += exp.make_conditions(
             stim_class=panda_obj,
-            stim_periods=["Cue", "Delay", "Response"],
+            stim_periods=["Cue", "Response"],
             conditions={
                 **block.dict(),
                 "Cue": {
@@ -144,15 +135,6 @@ for irep in range(0, reps):
                     "obj_dur": [240000, 200],
                     "obj_pos_x": (-0.25, 0.25),
                     "obj_mag": 0.5,
-                    "obj_rot": (rot_f(), rot_f()),
-                    "obj_tilt": 0,
-                    "obj_yaw": 0,
-                },
-                "Delay": {
-                    "obj_id": cue_obj[idx],
-                    "obj_dur": 240000,
-                    "obj_pos_x": 0,
-                    "obj_mag": 0.4,
                     "obj_rot": (rot_f(), rot_f()),
                     "obj_tilt": 0,
                     "obj_yaw": 0,
