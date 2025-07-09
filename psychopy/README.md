@@ -158,7 +158,7 @@ uv pip install -r requirements.txt
 
 <summary><b>Windows</b></summary>
 
-If you are in Windows, you can install and run EthoPy and PsychoPy either through PowerShell or 
+If you are in Windows, you can install and run EthoPy and PsychoPy either through `Ubuntu` or `PowerShell`. 
 
 <details>
 
