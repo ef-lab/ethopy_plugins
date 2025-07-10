@@ -3,12 +3,11 @@
 PsychoPy is Python-based open-source package that enables the creation and manipulation of visual stimuli. For more information, visit their: [PsychoPy](https://www.psychopy.org/). \
 This guide explains how to install and import implement PsychoPy through EthoPy. The setup involves three main components:
 
-1. `MatchToSample.py` - The experiment plugin
-2. `PsychoGrating.py` - The stimulus plugin
-3. `PsychoPresenter.py` - The utils plugin 
-4. `PsychoGrating_test.py` - The task configuration
-5. `PsychoDummyPorts.py` - The Interface plugin
-
+1. `match_to_sample.py` - The experiment plugin
+2. `psycho_grating.py` - The stimulus plugin
+3. `psycho_presenter.py` - The utils plugin
+4. `psych_dummy_ports.py` - The Interface plugin 
+5. `psychopy_test.py` - The task configuration 
 
 # Setup instruction
 
@@ -17,42 +16,7 @@ This guide explains how to install and import implement PsychoPy through EthoPy.
 ## Plugin Installation
 Instead of manually copying the plugin files, yoy can use Git sparse checkout to clone only the `psychopy` folder from the repository.
 
-### Clone only the `psychopy` Folder
-
-1. **Initialize the new Git repository**:
-```bash
-mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
-git init
-```
-
-2. **Add the remote repository**:
-
-```bash
-git remote add origin https://github.com/ef-lab/ethopy_plugins
-```
-<ins>Note</ins>: Replace `user/repository.git` with the actual GitHub repository URL.
-
-3. **Enable sparse chechout**:
-```bash
-git config core.sparseCheckout true
-```
-
-4. **Specify the folder to fetch**:
-```bash
-echo "psychopy" >> .git/info/sparse-checkout
-```
-<ins>Note</ins>: Replace `psychopy` with the actual path inside the repository.
-
-5. **Pull the specified folder**:
-```bash
-git pull origin main
-```
-<ins>Note</ins>: If the repository uses a different branch (e.g. develop), replace `main` with that branch. 
-
-6. **Add Path to the plugins**:
-```bash
-export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/psychopy
-```
+> Follow the instruction in README.md
 
 
 
@@ -89,13 +53,13 @@ pip install uv
 
 5. **Install `EthoPy`**:
 ```bash
-pip install EthoPy
+pip install ethopy
 ```
 
 6. **Connect to the repository**
 ```bash
 ls          # list files
-cd EthoPy   # go to the EthoPy directory
+cd ethopy   # go to the EthoPy directory
 ```
 
 7. **Install `PsychoPy`**:
@@ -209,7 +173,7 @@ pip install uv
 
 7. **Install `EthoPy`**:
 ```bash
-uv pip install EthoPy
+uv pip install ethopy
 ```
 
 8. **Install `PsychoPy`**:
@@ -304,13 +268,6 @@ pyenv activate psych_env
 python --version # or python -V
 ```
 
-<!-- 3. **Verify `python` version**:
-
-```bash
-python --version # or python -V
-sudo apt install python3.10 python3.10-venv python3.10-dev      # Otherwise, install python3.10
-``` -->
-
 5. **Update `pip` (<ins>OPTIONAL</ins>)**:
 ```bash
 pip install --upgrade pip
@@ -325,7 +282,7 @@ pip install uv
 
 7. **Install `EthoPy`**:
 ```bash
-uv pip install EthoPy
+uv pip install ethopy
 ```
 
 8. **Install `PsychoPy`**:
@@ -399,12 +356,12 @@ python run.py psychopy_test.py
 
 # Plugin components
 
-## 1. Match to sample experiment (`MatchTosample.py`)
+## 1. Match to sample experiment (`match_to_sample.py`)
 The Match to Sample experiment implements a behavioral paradigm where subjects must match a sample stimulus with a target stimulus. 
 
 ```python
 # Example usage in task configuration
-from ethopy.experiment.MatchToSample import ExperimentClass, State
+from ethopy.experiment.match_to_sample import Experiment
 
 # Key parameters
 params = {
@@ -426,12 +383,12 @@ params = {
 
 
 
-## 2. PsychoGrating stimulus (`PsychoGrating.py`)
+## 2. PsychoGrating stimulus (`psycho_grating.py`)
 
 The PsychoGrating stimulus provides grating stimuli presentation using psychopy.
 
 ```python
-from ethopy.stimuli.PsychoGrating import PsychoGrating
+from ethopy.stimuli.psycho_grating import PsychoGrating
 ```
 
 #### Features:
@@ -440,15 +397,15 @@ from ethopy.stimuli.PsychoGrating import PsychoGrating
 
 
 
-## 3. PsychoPresenter util(`PsychoPresenter.py`)
+## 3. PsychoPresenter util(`psycho_presenter.py`)
 
 The PsychoPresenter util handles the monitor parameters about how stimuli are presented. 
 ```python
 # In PsychoGrating stimuli
-from ethopy.utils.PsychoPresenter import Presenter
+from ethopy.utils.psycho_presenter import Presenter
 
 # import in task configuration
-from ethopy.stimuli.PsychoGrating import PsychoGrating
+from ethopy.stimuli.psycho_grating import PsychoGrating
 
 ```
 
@@ -462,7 +419,7 @@ from ethopy.stimuli.PsychoGrating import PsychoGrating
 
 
 
-## 4. Task Configuration (`psychopy.py`)
+## 4. Task Configuration (`psychopy_test.py`)
 
 The task configuration file sets up the experiment parameters and stimulus conditions. 
 
@@ -474,7 +431,7 @@ The task configuration file sets up the experiment parameters and stimulus condi
 ## 1. **Start EthoPy with task**:
 
 ```bash
-ethopy -p ~/.ethopy/tasks/PsychoGrating_test.py
+ethopy -p ~/.ethopy/tasks/psychopy_test.py
 ```
 
 
@@ -508,7 +465,7 @@ PsychoPy mentions, "_We strongly recommend you use Python 3.10 or 3.8._"
 
 ## 2. **PsychoPy Installation**:
 
--  `Cannot initiate the connection to archive.raspberrypi.org:80 (2a00:1098:84:1e0::2). - connect (101: Network is unreachable)`
+If you encounter issues with the connection to `archive.raspberrypi.org`
 ```bash
 # run 
 sudo ufw disable
@@ -527,6 +484,9 @@ sudo ufw enable
 ```
 ## 4. Segmentation Fault During OpenGL Stimulus Rendering in WSL 
 `WSL`, while powerful for running Linux environments inside Windows, has struggled with OpenGL graphic rendering. How to fix it:
+
+<details>
+<summary><b>Step-by-step</b></summary>
 
 <Ins>Step 1:</ins> Be sure that OpenGL packages are already installed.
 
@@ -590,7 +550,7 @@ source ~/.bashrc
 # run your experiment
 python run.py psychopy_test.py
 ```
-
+</details>
 
 ## 5. **Stimulus Display**
 - Verify PsychoPy installation
