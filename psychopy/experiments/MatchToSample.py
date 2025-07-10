@@ -1,4 +1,4 @@
-from core.Experiment import *
+from ethopy.core.Experiment import ExperimentClass, State
 
 
 @experiment.schema
