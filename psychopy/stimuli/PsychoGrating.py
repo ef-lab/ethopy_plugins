@@ -1,6 +1,6 @@
-from core.Stimulus import *
-from utils.PsychoPresenter import *
-from utils.helper_functions import iterable
+from ethopy.core.Stimulus import Stimulus, StimCondition
+from ethopy.utils.PsychoPresenter import Presenter
+from ethopy.utils.helper_functions import iterable
 
 
 @stimulus.schema
