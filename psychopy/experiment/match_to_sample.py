@@ -1,5 +1,7 @@
 import time
+
 import datajoint as dj
+
 from ethopy.core.experiment import ExperimentClass, State
 from ethopy.core.logger import experiment
 
