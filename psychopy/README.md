@@ -434,7 +434,7 @@ from ethopy.utils.psycho_presenter import Presenter
 from ethopy.stimuli.psycho_grating import PsychoGrating
 ```
 
-### Features<a name="features"></a>
+### Features:
 
 - Fill screen with color
 - Update the screen
