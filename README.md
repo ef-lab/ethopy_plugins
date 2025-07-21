@@ -1,12 +1,18 @@
 # ethopy_plugins
 
-`plugins` are packages that extend the extend the functionality by adding custom modules, behaviors, experiments, interfaces and stimuli.
+The `Ethopy plugin` system provides a flexible way to extend the functionality by adding custom modules, behaviors, experiments, interfaces, and stimuli. The system supports both core modules and user plugins with intelligent conflict resolution.
 
-Each plugin contains:
+# Plugin Categories
 
-1. `experiment` plugins
-2. `stimulus` plugins
-3. `task` plugins
+Ethopy supports two types of plugins:
+
+- **Standalone Modules**: Individual Python files in the plugin directory
+- **Categorized Plugins**: Modules organized in specific categories: 
+      -  `behaviors`: Custom behavior implementations 
+      - `experiments`: Experiment definitions 
+      - `interfaces`: Hardware interface modules 
+      - `stimuli`: Stimulus control modules
+
 
 ## Importing plugins
 
