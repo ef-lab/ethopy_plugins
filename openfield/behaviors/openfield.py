@@ -113,8 +113,8 @@ class OpenField(Behavior, dj.Manual):
             exp: The experiment object containing parameters.
         """
         super().setup(exp)
-        self.logger.log_setup_confs(self.conf_tables)
-        setup_conf_idx = exp.params['setup_conf_idx']
+        setup_conf_idx = exp.session_params['setup_conf_idx']
+        self.logger.log_setup_confs(self.conf_tables, setup_conf_idx)
         self.Arena_params = self.logger.get(schema='interface',
                                             table='SetupConfigurationArena',
                                             key={'setup_conf_idx': setup_conf_idx},
@@ -144,7 +144,7 @@ class OpenField(Behavior, dj.Manual):
         dlc_body_path = self.logger.get(schema='interface',
                                                table='SetupConfigurationArena.Models',
                                                fields=['path'],
-                                               key={'setup_conf_idx': self.exp.params['setup_conf_idx'],
+                                               key={'setup_conf_idx': self.exp.session_params['setup_conf_idx'],
                                                     'target': 'bodyparts'})[0]
         self.dlc = DLCContinuousPoseEstimator(frame_queue=self.interface.camera.process_queue,
                                               model_path=dlc_body_path,
@@ -358,7 +358,7 @@ class OpenField(Behavior, dj.Manual):
         dlc_corners_path = self.logger.get(schema='interface',
                                            table='SetupConfigurationArena.Models',
                                            fields=['path'],
-                                           key={'setup_conf_idx': self.exp.params['setup_conf_idx'],
+                                           key={'setup_conf_idx': self.exp.session_params['setup_conf_idx'],
                                                 'target': 'corners'})[0]
         dlcCorners = DLCCornerDetector(frame_queue=self.interface.camera.process_queue,
                                        model_path=dlc_corners_path,
