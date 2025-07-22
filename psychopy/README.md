@@ -1,7 +1,7 @@
 <h1 align="center">Integration of PsychoPy in EthoPy</h1>
 
-PsychoPy is Python-based open-source package that enables the creation and manipulation of visual stimuli. For more information, visit their: [PsychoPy](https://www.psychopy.org/). \
-This guide explains how to install and import implement PsychoPy through EthoPy. The setup involves three main components:
+PsychoPy is a Python-based open-source package that enables the creation and manipulation of visual stimuli. For more information, visit: [PsychoPy](https://www.psychopy.org/). \
+This guide explains how to install and import PsychoPy into your EthoPy environment. The setup involves three main components:
 
 1. `match_to_sample.py` - The experiment plugin
 2. `psycho_grating.py` - The stimulus plugin
@@ -12,7 +12,6 @@ This guide explains how to install and import implement PsychoPy through EthoPy.
 
 <!-- mdformat-toc start --slug=github --maxlevel=2 --minlevel=1 -->
 
-- [Table of Contents](#table-of-contents)
 - [Setup instruction](#setup-instruction)
   - [Plugin Installation](#plugin-installation)
   - [PsychoPy installation](#psychopy-installation)
@@ -45,107 +44,64 @@ This guide explains how to install and import implement PsychoPy through EthoPy.
 
 ## Plugin Installation<a name="plugin-installation"></a>
 
-Instead of manually copying the plugin files, yoy can use Git sparse checkout to clone only the `psychopy` folder from the repository.
+Instead of manually copying the plugin files, you can use Git sparse checkout to clone only the `psychopy` folder from the repository.
 
 > Follow the instruction in [README.md](ethopy_plugins/README.md)
 
 ## PsychoPy installation<a name="psychopy-installation"></a>
 
-<details>
-<summary><b>Raspbian OS</b></summary>
+
+### Unix-like OS
+_Below, there are the instrunction for PsychoPy installation in Raspbian OS or Linux._
 
 1. **Verify python version**
 
-   _PsychoPy mentions, "We strongly recommend you use Python 3.10 or 3.8."_
+_PsychoPy mentions, "We strongly recommend you use Python 3.10 or 3.8."_
 
-   ```bash
-   python --version # or python -V
-   sudo apt install python3.10 python3.10-venv python3.10-dev      # Otherwise, install python3.10
-   ```
+```bash
+python --version # or python -V
+sudo apt install python3.10 python3.10-venv python3.10-dev      # Otherwise, install python3.10
+```
+   <details>
 
-2. **Create a virtual environment (venv)**
+   Another way to create a virtual environemnt (venv) is through `pyenv`. `pyenv` is a Python version management tool that allows you to install and swithc between multiple Python versions without affecting your system's global Python version. `PsychoPy` runs with Python 3.8 or 3.10, so we recommend using pyenv in order to avoid any conflicts with other packages or Python environemnts. For installation, visit their [pyenv](https://github.com/pyenv/pyenv.git)
+   </details>
 
-   ```bash
-   python -m venv psychopy_venv         # or python3.10 -m venv psychopy_venv
-   source psychopy_env/bin/activate     # activate the venv
-   ```
+2. **Update `pip` (<ins>OPTIONAL</ins>)**:
 
-3. **Update `pip` (<ins>OPTIONAL</ins>)**:
+```bash
+pip install --upgrade pip
+```
 
-   ```bash
-   pip install --upgrade pip
-   ```
+3. **Install `UV` (<ins>OPTIONAL</ins>)**
 
-4. **Install `UV` (<ins>OPTIONAL</ins>)**
+_UV is an extremely fast Python package and project manager, written in Rust. For more information, vitit their [UV](https://docs.astral.sh/uv/). We recommend uv for a more quick installation of libraries and psychopy too_
 
-   _UV is an extremely fast Python package and project manager, written in Rust. For more information, vitit their [UV](https://docs.astral.sh/uv/). We recommend uv for a more quick installation of libraries and psychopy too_
+```bash
+pip install uv
+```
 
-   ```bash
-   pip install uv
-   ```
+4. **Install EthoPy**
+```bash
+pip install ethopy # or uv pip install ethopy
+```
 
 5. **Install `PsychoPy`**:
 
-   ```bash
-   uv pip install psychopy==2024.1.2 --no-deps
-   ```
+```bash
+uv pip install psychopy
+```
 
-   <ins>Note 1:</ins> PsychoPy is a large package, and its installation can take considerable time. By default, it attempts to install several dependencies such as `wxPython` (<i>useful for certain parts of PsychoPy, especially for Builder view or any of its graphical user interface (GUI) components</i>). However, since wxPython is often platform-specific and slow to installation, we recommend installing PsychoPy without dependencies and manually managing only the ones you need.
+<ins>Note 1:</ins> PsychoPy is a large package, and its installation can take considerable time. By default, it attempts to install several dependencies such as `wxPython` (<i>useful for certain parts of PsychoPy, especially for Builder view or any of its graphical user interface (GUI) components</i>). However, since wxPython is often platform-specific and slow to installation, we recommend installing PsychoPy without dependencies and manually managing only the ones you need.
 
-   <ins>Note 2:</ins> We recommend installing `psychopy==2024.1.2`, as it has been tested and shown to be compatible with EthoPy's structure and state machine logic.
-
-6. **Create a `requirements.txt`**:
-
-   ```bash
-   nano requirement.txt
-
-   #add: 
-   # core dependencies for psychopy
-   numpy==1.24.4           # for stimulus generation, timing precision and fast array operations
-   pandas==2.0.3           # data analysis library
-   pyzmq==26.2.1           # Communication between processes or networked components. 
-   setuptools==66.1.1      # for packaging and distributing Python projects
-   json_tricks==3.17.3     # save/load complex data in JSON
-   h5py==3.13.0            # library for HDF5 binary data format.
-   ```
-
-7. **Install `requirements.txt`**:
-
-   ```bash
-   uv pip install -r requirements.txt
-   ```
-
-   <ins>Note:</ins> In case, you want install wxPython too, we recomment:
-
-   ```bash
-   uv pip install wxPython>=4.1.1
-   nano requirement.txt
-
-   # add:
-   psychopy==2024.1.2
-   numpy==1.24.4           
-   pandas==2.0.3           
-   pyzmq==26.2.1          
-   setuptools==66.1.1         
-   json_tricks==3.17.3     
-   h5py==3.13.0            
-
-   uv pip install -r requirements.txt
-   ```
-
-8. **Run your experiment**:
+6. **Run your experiment**:
 
    ```bash
    python run.py psychopy_test.py
    ```
 
-</details>
 
-<details>
 
-<summary><b>Mac OS</b></summary>
-
-</details>
 
 <details>
 
