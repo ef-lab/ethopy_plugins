@@ -7,22 +7,21 @@ The `Ethopy plugin` system provides a flexible way to extend the functionality b
 Ethopy supports two types of plugins:
 
 - **Standalone Modules**: Individual Python files in the plugin directory
-- **Categorized Plugins**: Modules organized in specific categories: 
-      -  `behaviors`: Custom behavior implementations 
-      - `experiments`: Experiment definitions 
-      - `interfaces`: Hardware interface modules 
-      - `stimuli`: Stimulus control modules
-
+- **Categorized Plugins**: Modules organized in specific categories:
+  \- `behaviors`: Custom behavior implementations
+  \- `experiments`: Experiment definitions
+  \- `interfaces`: Hardware interface modules
+  \- `stimuli`: Stimulus control modules
 
 ## Importing plugins
 
 1. **Install `EthoPy`**
 
-    ```bash
-    pip install ethopy
-    ```
+   ```bash
+   pip install ethopy
+   ```
 
-2. **Git clone repository**
+1. **Git clone repository**
 
    ```bash
    git clone https://github.com/user/repository.git
@@ -30,7 +29,7 @@ Ethopy supports two types of plugins:
 
    Replace `user/repository.git` with the actual GitHub repository URL.
 
-3. **Add Path to the plugins**
+1. **Add Path to the plugins**
 
    ```bash
    export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/plugin_folder_name
@@ -38,4 +37,5 @@ Ethopy supports two types of plugins:
    # for Windows:
    $env:ETHOPY_PLUGIN_PATH = "$HOME\.ethopy\ethopy_plugins\plugin_folder_name"
    ```
-   Replace `plugin_folder_name` with the specific folder that you want.   
+
+   Replace `plugin_folder_name` with the specific folder that you want.
