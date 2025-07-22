@@ -102,24 +102,35 @@ class Panda(Stimulus, dj.Manual):
         "Panda.Movie",
     ]
     required_fields = ["obj_id", "obj_dur"]
-    default_key = {
-        "background_color": (0, 0, 0),
-        "ambient_color": (0.1, 0.1, 0.1, 1),
-        "light_idx": (1, 2),
-        "light_color": (np.array([0.7, 0.7, 0.7, 1]), np.array([0.2, 0.2, 0.2, 1])),
-        "light_dir": (np.array([0, -20, 0]), np.array([180, -20, 0])),
-        "obj_pos_x": 0,
-        "obj_pos_y": 0,
-        "obj_mag": 0.5,
-        "obj_rot": 0,
-        "obj_tilt": 0,
-        "obj_yaw": 0,
-        "obj_delay": 0,
-        "obj_occluder": 0,
-        "perspective": 0,
-    }
 
     object_files, is_recording = dict(), False
+
+    def __init__(self):
+        super().__init__()
+        self.cond_tables = [
+            "Panda",
+            "Panda.Object",
+            "Panda.Environment",
+            "Panda.Light",
+            "Panda.Movie",
+        ]
+        self.required_fields = ["obj_id", "obj_dur"]
+        self.default_key = {
+            "background_color": (0, 0, 0),
+            "ambient_color": (0.1, 0.1, 0.1, 1),
+            "light_idx": (1, 2),
+            "light_color": (np.array([0.7, 0.7, 0.7, 1]), np.array([0.2, 0.2, 0.2, 1])),
+            "light_dir": (np.array([0, -20, 0]), np.array([180, -20, 0])),
+            "obj_pos_x": 0,
+            "obj_pos_y": 0,
+            "obj_mag": 0.5,
+            "obj_rot": 0,
+            "obj_tilt": 0,
+            "obj_yaw": 0,
+            "obj_delay": 0,
+            "obj_occluder": 0,
+            "perspective": 0,
+        }
 
     def init(self, exp):
         super().init(exp)
