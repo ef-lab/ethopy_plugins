@@ -21,7 +21,7 @@ Ethopy supports two types of plugins:
    pip install ethopy
    ```
 
-1. **Git clone repository**
+2. **Git clone repository**
 
    ```bash
    git clone https://github.com/user/repository.git
@@ -29,7 +29,7 @@ Ethopy supports two types of plugins:
 
    Replace `user/repository.git` with the actual GitHub repository URL.
 
-1. **Add Path to the plugins**
+3. **Add Path to the plugins**
 
    ```bash
    export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/plugin_folder_name
