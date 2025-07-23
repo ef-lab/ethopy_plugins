@@ -59,25 +59,27 @@ class OpenField(Behavior, dj.Manual):
         radius                    : float
         """
 
-    cond_tables = [
-        "OpenField",
-        "OpenField.Response",
-        "OpenField.Init",
-        "OpenField.Reward",
-    ]
-
-    conf_tables = {"interface.ConfigurationArena": "interface.SetupConfigurationArena",
-                   "interface.ConfigurationArena.Port": "interface.SetupConfigurationArena.Port",
-                   "interface.ConfigurationArena.Screen": "interface.SetupConfigurationArena.Screen",
-                   "interface.ConfigurationArena.Models": "interface.SetupConfigurationArena.Models"}
-
-    required_fields = ["reward_loc_x", "reward_amount"]
-    default_key = {"reward_type": "water", "response_port": 1, "reward_port": 1}
-
     SHARED_MEMORY_SHAPE = (1, 4)
 
     def __init__(self):
         """Initialize the OpenField behavior class."""
+        self.cond_tables = [
+            "OpenField",
+            "OpenField.Response",
+            "OpenField.Init",
+            "OpenField.Reward",
+        ]
+
+        self.conf_tables = {"interface.ConfigurationArena": "interface.SetupConfigurationArena",
+                            "interface.ConfigurationArena.Port": "interface.SetupConfigurationArena.Port",
+                            "interface.ConfigurationArena.Screen": "interface.SetupConfigurationArena.Screen",
+                            "interface.ConfigurationArena.Models": "interface.SetupConfigurationArena.Models"}
+
+        self.required_fields = ["reward_loc_x", "reward_amount", 'response_ready', 'response_loc_x', 'response_loc_y',
+                                'radius', 'init_ready', 'init_radius', 'init_loc_y', 'init_loc_x', 'reward_loc_y']
+
+        self.default_key = {"reward_type": "water", "response_port": 1, "reward_port": 1}
+
         # create a queue that returns the arena corners
         self.manager = mp.Manager()
 
