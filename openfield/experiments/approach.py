@@ -43,6 +43,7 @@ class Experiment(State, ExperimentClass):
     cond_tables = ["Approach"]
     required_fields = []
     default_key = {
+        **ExperimentClass.Block().dict(),
         "trial_selection": "staircase",
         "max_reward": 1500,
         "min_reward": 500,
