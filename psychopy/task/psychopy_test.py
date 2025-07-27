@@ -1,7 +1,6 @@
-# Go/No-go task
-from ethopy.experiment.match_to_sample import Experiment
+from ethopy.experiments.match_to_sample import Experiment
 from ethopy.stimuli.psycho_grating import PsychoGrating
-from ethopy.Behaviors.MultiPort import MultiPort
+from ethopy.behaviors.MultiPort import MultiPort
 from ethopy.core import logger
 
 
