@@ -8,7 +8,7 @@ from ethopy.core import logger
 session_params = {
     "start_time": "08:00:00",  # start time of the session
     "stop_time": "22:00:00",  # stop time of the session
-    "setup_conf_idx": 1,
+    "setup_conf_idx": 0,
 }
 
 exp = Experiment()
