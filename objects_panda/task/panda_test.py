@@ -35,12 +35,12 @@ rew_prob = [2, 1, 1, 2]
 reps = 1
 panda_obj = Panda()
 panda_obj.fill_colors.set(
-    {"background": (0, 0, 0), "start": (32, 32, 32), "punish": (0, 0, 0)}
+    {"background": (0, 0, 0), "reward": (50, 50, 50), "punish": (0, 0, 0)}
 )
 
 
 block = exp.Block(
-    difficulty=0,
+    difficulty=0,  # 0.1sec delay
     next_up=1,
     next_down=0,
     trial_selection="staircase",
@@ -76,7 +76,7 @@ for irep in range(0, reps):
                 },
                 "Response": {
                     "obj_id": obj_comb,
-                    "obj_dur": [240000, 200],
+                    "obj_dur": 240000,
                     "obj_pos_x": (-0.25, 0.25),
                     "obj_mag": 0.5,
                     "obj_rot": (rot_f(), rot_f()),
@@ -86,7 +86,7 @@ for irep in range(0, reps):
                 "reward_port": rew_prob[idx],
                 "response_port": rew_prob[idx],
                 "cue_ready": 100,
-                "cue_duration": [240000, 1000],
+                "cue_duration": 240000,
                 "delay_duration": 100,
                 "response_duration": 5000,
                 "reward_duration": 2000,
@@ -96,7 +96,7 @@ for irep in range(0, reps):
         )
 
 block = exp.Block(
-    difficulty=1,
+    difficulty=1, ## 2sec delay
     next_up=0,
     next_down=1,
     trial_selection="staircase",
@@ -132,7 +132,7 @@ for irep in range(0, reps):
                 },
                 "Response": {
                     "obj_id": obj_comb,
-                    "obj_dur": [240000, 200],
+                    "obj_dur": 240000,
                     "obj_pos_x": (-0.25, 0.25),
                     "obj_mag": 0.5,
                     "obj_rot": (rot_f(), rot_f()),
@@ -142,7 +142,7 @@ for irep in range(0, reps):
                 "reward_port": rew_prob[idx],
                 "response_port": rew_prob[idx],
                 "cue_ready": 100,
-                "cue_duration": [240000, 1000],
+                "cue_duration": 240000,
                 "delay_duration": 2000,
                 "response_duration": 5000,
                 "reward_duration": 2000,

@@ -1,4 +1,4 @@
-# Match to Sample with Panda3D in EthoPy
+# Match to Sample task with Panda3D in EthoPy
 
 This guide explains how to use the Match to Sample experiment with Panda3D visual stimuli in EthoPy. The setup involves three main components:
 
@@ -8,51 +8,15 @@ This guide explains how to use the Match to Sample experiment with Panda3D visua
 
 ## Setup Instructions
 
-### Installation
+Follow steps 1-8 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
+
+### Installation of required packages
+
+Panda3D is required for this plugin. For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
+
 ```bash
 pip install panda3d
 ```
-For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
-
-### Plugin Installation
-
-Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `objects_panda` folder from the repository.
-
-#### Clone Only the `objects_panda` Folder
-
-1. **Initialize a new Git repository:**
-   ```bash
-   mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
-   git init
-   ```
-
-2. **Add the remote repository:**
-   ```bash
-   git remote add origin https://github.com/ef-lab/ethopy_plugins
-   ```
-   Replace `user/repository.git` with the actual GitHub repository URL.
-
-3. **Enable sparse checkout:**
-   ```bash
-   git config core.sparseCheckout true
-   ```
-
-4. **Specify the folder to fetch:**
-   ```bash
-   echo "objects_panda" >> .git/info/sparse-checkout
-   ```
-   Replace `objects_panda` with the actual path inside the repository.
-
-5. **Pull the specified folder:**
-   ```bash
-   git pull origin main
-   ```
-   If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
-
-6. **Add Path to the plugins**
-   ```bash
-   export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/objects_panda
-   ```
 
 ### Upload Objects
 
@@ -108,11 +72,12 @@ from ethopy.stimuli.panda import Panda
 
 ### 3. Task Configuration (`panda_test.py`)
 
-The task configuration file sets up the experiment parameters and stimulus conditions.
+The task configuration file sets up the experiment parameters and stimulus conditions. You need to specify the task path, create it if doesn't exist and add the configuration file, e.g. `~/.ethopy/tasks/panda_test.py`
 
 ## Running the Experiment
 
 1. **Start EthoPy with the task**:
+
 ```bash
 ethopy -p ~/.ethopy/tasks/panda_test.py
 ```
@@ -142,48 +107,13 @@ ethopy -p ~/.ethopy/tasks/panda_test.py
 
 ### Common Issues
 
-1. **Plugin path**
-```bash
-# Check plugin path and if it matches the one you used to transfer your files
-python -c "from ethopy.plugin_manager import PluginManager; pm = PluginManager(); print(pm._plugin_paths)"
-```
-
-2. **Stimulus Display**
+1. **Stimulus Display**
 - Verify Panda3D installation
 - Check model file paths
 - Confirm screen configuration
 
-3. **Database Connection**
-- Verify database credentials
-- Check table permissions
-- Ensure schema exists
-
-### Debug Logging
-
-Enable detailed logging:
-```bash
-ethopy --log-console --log-level DEBUG -p your_task_path.py
-```
-
-## Best Practices
-
-**Task Configuration**
-- Use descriptive condition names
-- Document parameter choices
-- Test configurations before experiments
 
 ## Additional Resources
 
 1. **Documentation**
-- [EthoPy Documentation](https://ef-lab.github.io/ethopy_package/)
 - [Panda3D Manual](https://docs.panda3d.org/1.10/python/index)
-- [DataJoint Documentation](https://docs.datajoint.org/)
-
-2. **Source Code**
-- [EthoPy GitHub Repository](https://github.com/ef-lab/ethopy_package)
-- [Example Configurations](https://github.com/ef-lab/ethopy_package/tree/main/src/ethopy/task)
-
-3. **Support**
-- [Issue Tracker](https://github.com/ef-lab/ethopy_package/issues)
-- [Contributing Guidelines](https://github.com/ef-lab/ethopy_package/blob/main/CONTRIBUTING.md)
-
