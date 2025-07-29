@@ -17,41 +17,44 @@ Ethopy supports two types of plugins:
 
 1. **Create a virtual environment and install `EthoPy`**
 
-   Follow instructions here: https://ef-lab.github.io/ethopy_package/getting_started/#setting-up-a-virtual-environment
+   Follow instructions in [ethopy_package](https://ef-lab.github.io/ethopy_package/getting_started/#setting-up-a-virtual-environment)
+
+2. **Installation of required packages**
+   Install any additional required packages, instructions will be provided in the README of the specific plugin 
 
 #### Install `your_plugin` Clone Only the  Folder
 Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `your_plugin` folder from the repository.
 
-2. **Initialize a new Git repository:**
+3. **Initialize a new Git repository:**
    ```bash
    mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
    git init
    ```
 
-3. **Add the remote repository:**
+4. **Add the remote repository:**
    ```bash
    git remote add origin https://github.com/ef-lab/ethopy_plugins
    ```
    Replace `ef-lab` with your username.
 
-4. **Enable sparse checkout:**
+5. **Enable sparse checkout:**
    ```bash
    git config core.sparseCheckout true
    ```
 
-5. **Specify the folder to fetch:**
+6. **Specify the folder to fetch:**
    ```bash
    echo "your_plugin" >> .git/info/sparse-checkout
    ```
    Replace `your_plugin` with the actual path inside the repository.
 
-6. **Pull the specified folder:**
+7. **Pull the specified folder:**
    ```bash
    git pull origin main
    ```
    If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
 
-7. **Add Path to the plugins**
+8. **Add Path to the plugins**
    ```bash
    export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/your_plugin
 

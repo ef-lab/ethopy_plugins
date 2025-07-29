@@ -8,16 +8,15 @@ This guide explains how to use the Match to Sample experiment with Panda3D visua
 
 ## Setup Instructions
 
-Follow steps 1-8 of the Plugin Installation in https://github.com/ef-lab/ethopy_plugins
+Follow steps 1-8 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
 
 ### Installation of required packages
 
-Pand3D is required for this plugin
+Panda3D is required for this plugin. For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
 
 ```bash
 pip install panda3d
 ```
-For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
 
 ### Upload Objects
 
