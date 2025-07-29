@@ -34,15 +34,15 @@ The Match to Sample experiment implements a behavioral paradigm where subjects m
 
 ```python
 # Example usage in task configuration
-from ethopy.experiments.match_to_sample import MatchToSample
+from ethopy.experiments.match_to_sample import Experiment
 
 # Key parameters
 params = {
-    'cue_period': 1000,      # Duration of sample presentation (ms)
-    'delay_period': 500,     # Delay between sample and choice (ms)
-    'response_period': 2000, # Time allowed for response (ms)
+    'cue_duration': 1000,      # Duration of sample presentation (ms)
+    'delay_duration': 500,     # Delay between sample and choice (ms)
+    'response_duration': 2000, # Time allowed for response (ms)
     'reward_amount': 3,      # Reward amount for correct response
-    'punish_period': 1000,   # Timeout duration for incorrect response (ms)
+    'punish_duration': 1000,   # Timeout duration for incorrect response (ms)
 }
 ```
 
@@ -94,7 +94,7 @@ ethopy -p ~/.ethopy/tasks/panda_test.py
 - `Trial` - Trial data
 - `Condition` - Trial conditions
 - `Response` - Subject responses
-- `MatchToSample` - Experiment conditions
+- `Condition.MatchToSample` - Experiment conditions
 
 ### 2. Stimulus Tables
 - `Panda`

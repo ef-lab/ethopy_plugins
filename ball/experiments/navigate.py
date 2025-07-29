@@ -43,14 +43,14 @@ class Condition(dj.Manual):
 class Experiment(State, ExperimentClass):
     cond_tables = ['Navigate']
     required_fields = ['difficulty']
-    default_key = {'noresponse_intertrial' : 0,
-                   'norun_response'        : 0,
-                   'incremental_punishment': 0,
+    default_key = {'noresponse_intertrial' : 1,
+                   'norun_response'        : 1,
+                   'incremental_punishment': 1,
                    'trial_selection'       : 'staircase',
 
                    'trial_ready'            : 0,
                    'intertrial_duration'    : 1000,
-                   'trial_duration'         : 1000,
+                   'trial_duration'         : 5000,
                    'reward_duration'        : 2000,
                    'punish_duration'        : 1000,
                    **ExperimentClass.Block().dict(),
