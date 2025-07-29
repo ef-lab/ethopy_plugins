@@ -8,9 +8,9 @@ Ethopy supports two types of plugins:
 
 - **Standalone Modules**: Individual Python files in the plugin directory
 - **Categorized Plugins**: Modules organized in specific categories:\
-  \- `behaviors`: Custom behavior implementations
-  \- `experiments`: Experiment definitions
-  \- `interfaces`: Hardware interface modules
+  \- `behaviors`: Custom behavior implementations\
+  \- `experiments`: Experiment definitions\
+  \- `interfaces`: Hardware interface modules\
   \- `stimuli`: Stimulus control modules
 
 ## Plugin Installation
