@@ -1,4 +1,4 @@
-# Match to Sample with Panda3D in EthoPy
+# Match to Sample task with Panda3D in EthoPy
 
 This guide explains how to use the Match to Sample experiment with Panda3D visual stimuli in EthoPy. The setup involves three main components:
 
@@ -72,12 +72,11 @@ from ethopy.stimuli.panda import Panda
 
 ### 3. Task Configuration (`panda_test.py`)
 
-The task configuration file sets up the experiment parameters and stimulus conditions.
+The task configuration file sets up the experiment parameters and stimulus conditions. You need to specify the task path, create it if doesn't exist and add the configuration file, e.g. `~/.ethopy/tasks/panda_test.py`
 
 ## Running the Experiment
 
 1. **Start EthoPy with the task**:
-You need to specify the task path, create it if doesn't exist and add the configuration file. You can also modify the path according to your folder naming conventions.
 
 ```bash
 ethopy -p ~/.ethopy/tasks/panda_test.py
@@ -108,48 +107,13 @@ ethopy -p ~/.ethopy/tasks/panda_test.py
 
 ### Common Issues
 
-1. **Plugin path**
-```bash
-# Check plugin path and if it matches the one you used to transfer your files
-python -c "from ethopy.plugin_manager import PluginManager; pm = PluginManager(); print(pm._plugin_paths)"
-```
-
-2. **Stimulus Display**
+1. **Stimulus Display**
 - Verify Panda3D installation
 - Check model file paths
 - Confirm screen configuration
 
-3. **Database Connection**
-- Verify database credentials
-- Check table permissions
-- Ensure schema exists
-
-### Debug Logging
-
-Enable detailed logging:
-```bash
-ethopy --log-console --log-level DEBUG -p your_task_path.py
-```
-
-## Best Practices
-
-**Task Configuration**
-- Use descriptive condition names
-- Document parameter choices
-- Test configurations before experiments
 
 ## Additional Resources
 
 1. **Documentation**
-- [EthoPy Documentation](https://ef-lab.github.io/ethopy_package/)
 - [Panda3D Manual](https://docs.panda3d.org/1.10/python/index)
-- [DataJoint Documentation](https://docs.datajoint.org/)
-
-2. **Source Code**
-- [EthoPy GitHub Repository](https://github.com/ef-lab/ethopy_package)
-- [Example Configurations](https://github.com/ef-lab/ethopy_package/tree/main/src/ethopy/task)
-
-3. **Support**
-- [Issue Tracker](https://github.com/ef-lab/ethopy_package/issues)
-- [Contributing Guidelines](https://github.com/ef-lab/ethopy_package/blob/main/CONTRIBUTING.md)
-
