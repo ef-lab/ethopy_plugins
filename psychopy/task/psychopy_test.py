@@ -1,6 +1,6 @@
 from ethopy.experiments.match_to_sample import Experiment
 from ethopy.stimuli.psycho_grating import PsychoGrating
-from ethopy.behaviors.MultiPort import MultiPort
+from ethopy.behaviors.multi_port import MultiPort
 from ethopy.core import logger
 
 
