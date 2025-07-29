@@ -7,7 +7,7 @@ The `Ethopy plugin` system provides a flexible way to extend the functionality b
 Ethopy supports two types of plugins:
 
 - **Standalone Modules**: Individual Python files in the plugin directory
-- **Categorized Plugins**: Modules organized in specific categories:
+- **Categorized Plugins**: Modules organized in specific categories:\
   \- `behaviors`: Custom behavior implementations
   \- `experiments`: Experiment definitions
   \- `interfaces`: Hardware interface modules
@@ -72,6 +72,7 @@ Ethopy supports two types of plugins:
 ## Running the Experiment
 
 1. **Task configuration file `your_plugin_task.py`**:
+
 The task configuration file sets up the experiment parameters and stimulus conditions. You need to specify the task path, create it if doesn't exist and add the configuration file: `/path_to_your_conf_file/your_plugin_task.py`
 
 2. **Start EthoPy with the task**:
