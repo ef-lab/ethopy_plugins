@@ -13,29 +13,52 @@ Ethopy supports two types of plugins:
   \- `interfaces`: Hardware interface modules
   \- `stimuli`: Stimulus control modules
 
-## Importing plugins
+### Plugin Installation
 
-1. **Install `EthoPy`**
+1. **Create a virtual environment and install `EthoPy`**
 
+   Follow instructions here: https://ef-lab.github.io/ethopy_package/getting_started/#setting-up-a-virtual-environment
+
+#### Install `your_plugin` Clone Only the  Folder
+Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `your_plugin` folder from the repository.
+
+2. **Initialize a new Git repository:**
    ```bash
-   pip install ethopy
+   mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
+   git init
    ```
 
-2. **Git clone repository**
-
+3. **Add the remote repository:**
    ```bash
-   git clone https://github.com/user/repository.git
+   git remote add origin https://github.com/ef-lab/ethopy_plugins
+   ```
+   Replace `ef-lab` with your username.
+
+4. **Enable sparse checkout:**
+   ```bash
+   git config core.sparseCheckout true
    ```
 
-   Replace `user/repository.git` with the actual GitHub repository URL.
-
-3. **Add Path to the plugins**
-
+5. **Specify the folder to fetch:**
    ```bash
-   export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/plugin_folder_name
+   echo "your_plugin" >> .git/info/sparse-checkout
+   ```
+   Replace `your_plugin` with the actual path inside the repository.
+
+6. **Pull the specified folder:**
+   ```bash
+   git pull origin main
+   ```
+   If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
+
+7. **Add Path to the plugins**
+   ```bash
+   export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/your_plugin
 
    # for Windows:
-   $env:ETHOPY_PLUGIN_PATH = "$HOME\.ethopy\ethopy_plugins\plugin_folder_name"
+   $env:ETHOPY_PLUGIN_PATH = "$HOME\.ethopy\ethopy_plugins\your_plugin"
    ```
+   Replace `your_plugin` with the actual name of the plugin you want to use.
 
-   Replace `plugin_folder_name` with the specific folder that you want.
+
+

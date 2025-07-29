@@ -8,51 +8,16 @@ This guide explains how to use the Match to Sample experiment with Panda3D visua
 
 ## Setup Instructions
 
-### Installation
+Follow steps 1-8 of the Plugin Installation in https://github.com/ef-lab/ethopy_plugins
+
+### Installation of required packages
+
+Pand3D is required for this plugin
+
 ```bash
 pip install panda3d
 ```
 For more information, visit their [Panda3D GitHub repository](https://github.com/panda3d/panda3d/tree/master).
-
-### Plugin Installation
-
-Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `objects_panda` folder from the repository.
-
-#### Clone Only the `objects_panda` Folder
-
-1. **Initialize a new Git repository:**
-   ```bash
-   mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
-   git init
-   ```
-
-2. **Add the remote repository:**
-   ```bash
-   git remote add origin https://github.com/ef-lab/ethopy_plugins
-   ```
-   Replace `user/repository.git` with the actual GitHub repository URL.
-
-3. **Enable sparse checkout:**
-   ```bash
-   git config core.sparseCheckout true
-   ```
-
-4. **Specify the folder to fetch:**
-   ```bash
-   echo "objects_panda" >> .git/info/sparse-checkout
-   ```
-   Replace `objects_panda` with the actual path inside the repository.
-
-5. **Pull the specified folder:**
-   ```bash
-   git pull origin main
-   ```
-   If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
-
-6. **Add Path to the plugins**
-   ```bash
-   export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/objects_panda
-   ```
 
 ### Upload Objects
 
@@ -113,6 +78,8 @@ The task configuration file sets up the experiment parameters and stimulus condi
 ## Running the Experiment
 
 1. **Start EthoPy with the task**:
+You need to specify the task path, create it if doesn't exist and add the configuration file. You can also modify the path according to your folder naming conventions.
+
 ```bash
 ethopy -p ~/.ethopy/tasks/panda_test.py
 ```
