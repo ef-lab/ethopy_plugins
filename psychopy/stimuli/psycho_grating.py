@@ -58,8 +58,6 @@ class PsychoGrating(Stimulus, dj.Manual):
         self.gratings = dict()
         self.conds = dict()
         self.curr_cond = curr_cond
-        # print("(self.curr_cond",self.curr_cond)
-        # print("(self.curr_cond['pos_x']",self.curr_cond['pos_x'])
         if stim_period == "":
             self.curr_cond = curr_cond
         elif stim_period not in curr_cond:

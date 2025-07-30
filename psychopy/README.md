@@ -13,15 +13,13 @@ This guide explains how to install and import PsychoPy into your EthoPy environm
 
 Follow steps 1-8 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
 
-## Installation of required packages
+### Installation of required packages
 PsychoPy is required for this plugin. For more information, visit their [PsychoPy GitHub repository](https://github.com/psychopy/psychopy.git)
-
-_Below are the instructions for installing PsychoPy on Raspbian OS or other Linux distributions._
 
 ```bash
 pip install psychopy
 ```
-<ins>Note</ins>: _UV is an extremely fast Python package and project manager, written in Rust. For more information, visit their [UV](https://docs.astral.sh/uv/). We recommend uv for a more quick installation of libraries and psychopy too_:
+Note: UV is an extremely fast Python package and project manager, written in Rust. For more information, visit their [UV](https://docs.astral.sh/uv/). We recommend uv for a more quick installation of libraries and psychopy too:
 
 ```bash
 pip install uv
@@ -30,9 +28,9 @@ uv pip install psychopy
 
 ## Plugin components
 
-### 1. Match to sample experiment
+### 1. Match to sample experiment (`match_to_sample.py`)
 
-The `Match to Sample` experiment implements a behavioral paradigm where subjects must match a sample stimulus with a target stimulus.
+The Match to Sample experiment implements a behavioral paradigm where subjects must match a sample stimulus with a target stimulus.
 
 ```python
 # Example usage in task configuration
@@ -57,9 +55,10 @@ params = {
 1. `Reward` - Deliver reward for correct response
 1. `Punish` - Timeout for incorrect response
 
+
 ### 2. PsychoGrating stimulus (`psycho_grating.py`)
 
-The `PsychoGrating` stimulus provides grating stimuli presentation using psychopy.
+The PsychoGrating stimulus provides grating stimuli presentation using psychopy.
 
 ```python
 # Example usage in task configuration
@@ -71,9 +70,9 @@ from ethopy.stimuli.psycho_grating import PsychoGrating
 - Multiple gratings management
 - Grating transformation (rotation, position, spatial & temporal frequency, mask, size, texture)
 
-### 3. PsychoPresenter util(`psycho_presenter.py`)
+### 3. PsychoPresenter util (`psycho_presenter.py`)
 
-The `PsychoPresenter` util handles the monitor parameters about how stimuli are presented.
+The PsychoPresenter util handles the monitor parameters about how stimuli are presented.
 
 ```python
 # In PsychoGrating stimuli
@@ -92,7 +91,7 @@ from ethopy.stimuli.psycho_grating import PsychoGrating
 - Monitor warping
 
 ### 4. PsychoDummyPort interface (`psych_dummy_port.py`)
-The `PsychDummyPort` interface handles all communication with hardware.
+The PsychDummyPort interface handles all communication with hardware.
 
 ### 5. Task Configuration (`psychopy_test.py`)
 
@@ -130,11 +129,11 @@ ethopy -p ~/.ethopy/tasks/psychopy_test.py
 
 ### Common Issues
 
-1. **Python version**:
+1. **Python version**
 
 PsychoPy mentions, "_We strongly recommend you use Python 3.10 or 3.8._"
 
-2. **PsychoPy Installation**:
+2. **PsychoPy Installation**
 
 If you encounter issues with the connection to `archive.raspberrypi.org`
 
@@ -155,7 +154,7 @@ sudo apt update
 sudo ufw enable
 ```
 
-3. **Segmentation Fault During OpenGL Stimulus Rendering in WSL**:
+3. **Segmentation Fault During OpenGL Stimulus Rendering in WSL**
 
 `WSL`, while powerful for running Linux environments inside Windows, has struggled with OpenGL graphic rendering. How to fix it:
 
@@ -229,7 +228,7 @@ python run.py psychopy_test.py
 
 </details>
 
-4. **Fixing ‘alsa/asoundlib.h’ Not Found Error for psychtoolbox@3.0.19.14**:
+4. **Fixing ‘alsa/asoundlib.h’ Not Found Error for psychtoolbox@3.0.19.14**
 
 This error occurs due to missing development libraries required for compiling native bildings. 
 ```bash
@@ -244,7 +243,7 @@ sudo apt install libxi-dev # XInput (X11 input extension)
 pip install psychtoolbox # install Psychtoolbox
 ```
 
-5. **`wxpython` (v4.2.3) was included because `psychopy` (v.2025.1.1) depends on `wxpython`**:
+5. **`wxpython` (v4.2.3) was included because `psychopy` (v.2025.1.1) depends on `wxpython`**
 
 ```bash
 # Install the required libraries:
