@@ -117,3 +117,9 @@ ethopy -p ~/.ethopy/tasks/tones_grating_test.py
 - `Grating.temporal_freq`
 - `Grating.flatness_correction`
 - `Grating.duration`
+
+## Troubleshooting
+
+### Common Issues
+
+## Additional Resources
