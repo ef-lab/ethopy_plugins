@@ -155,4 +155,4 @@ ethopy -p ~/.ethopy/tasks/ball_test.py
 ## Additional Resources
 
 1. **Documentation**
-- ef-lab/ethopy_hardware/ball
+- [EthoPy Hardware: Ball](https://github.com/ef-lab/ethopy_hardware/tree/main/VR_Ball)
