@@ -1,4 +1,9 @@
-from stimuli.olfactory import *
+import datajoint as dj
+import numpy as np
+
+from ethopy.stimuli.olfactory import Odorants, Olfactory
+from ethopy.core.logger import stimulus
+from ethopy.core.stimulus import Stimulus
 
 
 @stimulus.schema
