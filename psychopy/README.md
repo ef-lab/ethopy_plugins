@@ -11,7 +11,7 @@ This guide explains how to install and import PsychoPy into your EthoPy environm
 
 ## Setup instruction
 
-Follow steps 1-8 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
+Follow steps 1-4 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
 
 ### Installation of required packages
 PsychoPy is required for this plugin. For more information, visit their [PsychoPy GitHub repository](https://github.com/psychopy/psychopy.git)
