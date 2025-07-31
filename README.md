@@ -23,51 +23,27 @@ Ethopy supports two types of plugins:
 
    Install any additional required packages, instructions will be provided in the README of the specific plugin 
 
-3. **Initialize a new Git repository:**
+3. **Clone the full repository:**
 
    ```bash
    mkdir -p ~/.ethopy/ethopy_plugins/ && cd ~/.ethopy/ethopy_plugins/
-   git init
+   git clone https://github.com/ef-lab/ethopy_plugins .
    ```
+   Replace `ef-lab` with your username if using a fork.
 
-4. **Add the remote repository:**
+4. **Set plugin path with environment variable:**
 
-   ```bash
-   git remote add origin https://github.com/ef-lab/ethopy_plugins
-   ```
-   Replace `ef-lab` with your username.
-
-5. **Install `your_plugin`:**
-
-   Instead of manually copying the plugin files, you can use **Git sparse checkout** to clone only the `your_plugin` folder from the repository.
-
-   ```bash
-   git config core.sparseCheckout true
-   ```
-
-6. **Specify the folder to fetch:**
-
-   ```bash
-   echo "your_plugin" >> .git/info/sparse-checkout
-   ```
-   Replace `your_plugin` with the actual path inside the repository.
-
-7. **Pull the specified folder:**
-
-   ```bash
-   git pull origin main
-   ```
-   If the repository uses a different branch (e.g., `develop`), replace `main` with that branch.
-
-8. **Add Path to the plugins:**
-
+   **Linux/macOS:**
    ```bash
    export ETHOPY_PLUGIN_PATH=~/.ethopy/ethopy_plugins/your_plugin
+   ```
 
-   # for Windows:
+   **Windows:**
+   ```powershell
    $env:ETHOPY_PLUGIN_PATH = "$HOME\.ethopy\ethopy_plugins\your_plugin"
    ```
-   Replace `your_plugin` with the actual name of the plugin you want to use.
+
+   Replace `your_plugin` with the actual name of the plugin you want to use (e.g., `openfield`, `vr_ball`).
 
 ## Running the Experiment
 
@@ -119,6 +95,7 @@ ethopy --log-console --log-level DEBUG -p /path_to_your_conf_file/plugin_task.py
 ## Additional Resources
 
 1. **Documentation**
+- [Ethopy Plugin system](https://ef-lab.github.io/ethopy_package/plugin/)
 - [EthoPy Documentation](https://ef-lab.github.io/ethopy_package/)
 - [DataJoint Documentation](https://docs.datajoint.org/)
 

@@ -10,7 +10,7 @@ This guide explains how to use a Navigation experiment with a styrofoam ball and
 
 ## Setup Instructions
 
-Follow steps 1-8 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
+Follow steps 1-4 in [Plugin Installation](https://github.com/ef-lab/ethopy_plugins)
 
 ### Installation of required packages
 
