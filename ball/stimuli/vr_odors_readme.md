@@ -12,8 +12,8 @@ Subsequently, every color in the figure below, represents an odor that its conce
 Figure: Exemplary olfactory spaces with different e-factors. Left: e-factor=2, Right: e-factor=5.
 
 \
-$ x_{dist} =  \dfrac{|odors_{x}  - x |}{space size} $
+$x_{dist} =  \dfrac{|odors_{x}  - x |}{space size}$
 
-$ y_{dist} =  \dfrac{|odors_{y}  - y |}{space size} $
+$y_{dist} =  \dfrac{|odors_{y}  - y |}{space size}$
 
-$ loc2odor = \bigg(1 - \sqrt{\dfrac{x_{dist}^2 +y_{dist}^2}{2}}\bigg) ^{100 * e-factor} $
+$loc2odor = \bigg(1 - \sqrt{\dfrac{x_{dist}^2 +y_{dist}^2}{2}}\bigg) ^{100 * e-factor}$
