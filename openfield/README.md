@@ -359,6 +359,7 @@ python -c "from ethopy.plugin_manager import PluginManager; pm = PluginManager()
 
 2. **DeepLabCut Setup**
 - Verify both body part and corner detection models are configured
+    - for the corners an image corners_check.jpg is saved at every session in path that ethopy is running in order to verify that the corners are correct defined.
 - Check model paths in SetupConfigurationArena.Models table
 - Ensure camera is properly initialized and works before DLC ([qv4l2](https://manpages.ubuntu.com/manpages/jammy/man1/qv4l2.1.html))
 
