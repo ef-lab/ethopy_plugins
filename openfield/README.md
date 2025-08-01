@@ -21,7 +21,7 @@ The OpenField experiment is a behavioral paradigm where animals freely navigate 
 
 The experiment is ideal for studying spatial navigation, visual object recognition, and approach behaviors in freely moving animals.
 
-Check [here](https://github.com/ef-lab/ethopy_hardware/tree/main/VR_Ball) hardware information required to build the Openfield setup .
+Check [here](https://github.com/ef-lab/ethopy_hardware/tree/main/Open-field) hardware information required to build the Openfield setup.
 
 ## Setup involves three main components:
 
