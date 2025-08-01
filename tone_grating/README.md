@@ -107,8 +107,8 @@ ethopy -p ~/.ethopy/tasks/tones_grating_test.py
 |-------|------|-------------|---------|
 | `stim_hash` | varchar(24) | Stimulus hash | - |
 | `tones_duration` | int | Duration of tone stimulus presenation (ms) | 1000 |
-| `tone_frequency` | int | Frequency of the tone (Hz) | 40500 |
-| `tone_volume` | int | Amplitude of the tone stimulus (0-100 range) | 30 |
+| `tone_frequency` | int | Frequency of the tone (Hz) | 40000 |
+| `tone_volume` | int | Amplitude of the tone stimulus (0-100 range) | 50 |
 | `tone_pulse_freq` | float | Frequency of the clicks (Hz) | 100 |
 
 ### 2. Grating Table
@@ -116,14 +116,14 @@ ethopy -p ~/.ethopy/tasks/tones_grating_test.py
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
 | `stim_hash` | varchar(24) | Stimulus hash | - |
-| `theta` | int | Grating, in degrees (0-360) | 90 |
+| `theta` | int | Grating, in degrees (0-360) | 0 |
 | `spatial_freq` | float | cycles/deg | 0.05 |
 | `phase` | float | initial phase in rad | 0.0 |
 | `contrast` | int | 0-100 Michelson contrast| 80 |
 | `square` | int | square flag | 0 |
 | `temporal_freq` | float | cycles/sec | 0.0 |
 | `flatness_correction` | int | 1 correct for flatness of monitor, 0 do not | 1 |
-| `duration` | int | grating duration | 5000 |
+| `duration` | int | grating duration | 1000 |
 
 ## Best Practices
 
