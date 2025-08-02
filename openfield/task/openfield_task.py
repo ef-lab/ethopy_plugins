@@ -28,8 +28,6 @@ def interp(x):
 
 # define session parameters
 session_params = {
-    "trial_selection": "random",
-    "noresponse_intertrial": True,
     "setup_conf_idx": 16,
     "max_reward": 1000,
 }
@@ -58,6 +56,7 @@ for idx, loc in enumerate(objs_idx):
     conditions += exp.make_conditions(
         stim_class=panda_obj,
         conditions={
+            "trial_selection": 'random',
             # stimulus parameters
             "obj_id": objs_idx[idx],
             "obj_dur": 240000,
