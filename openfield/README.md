@@ -142,7 +142,6 @@ from ethopy.behavior.openfield import OpenField
 
 # Key parameters
 params = {
-    'model_path': '/path/to/dlc/model',
     'response_loc_x': -0.3,             # Response locations relative to the screen
     'init_loc_x': 20,                   # Starting position relative to the Arena(0,0 left top corner)
     'init_loc_y': 150,
