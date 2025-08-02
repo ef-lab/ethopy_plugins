@@ -1,0 +1,18 @@
+# Core scientific computing
+numpy
+datajoint
+
+# 3D graphics and rendering
+panda3d
+
+# Computer vision dependencies
+opencv-python
+
+# Computer vision and deep learning for pose estimation  
+# Note: DeepLabCut Live should be installed separately following the 
+# detailed setup instructions in README.md for CUDA support
+# deeplabcut-live
+
+# TensorFlow for GPU acceleration (install after CUDA setup)
+# tensorflow==2.12
+
