@@ -1,6 +1,6 @@
 # Navigation in Virtual Reality in EthoPy
 
-This guide explains how to use a Navigation experiment with a styrofoam ball and olfactory stimuli in EthoPy. The setup involves five main components:
+This guide explains how to use a Navigation experiment with a Spherical Treadmill (styrofoam ball) and olfactory stimuli in EthoPy. The setup involves five main components:
 
 1. `vr_ball.py` - The behavior plugin
 2. `navigate.py` - The experiment plugin
@@ -155,4 +155,4 @@ ethopy -p ~/.ethopy/tasks/ball_test.py
 ## Additional Resources
 
 1. **Documentation**
-- [EthoPy Hardware: Ball](https://github.com/ef-lab/ethopy_hardware/tree/main/VR_Ball)
+- [EthoPy Hardware: Ball](https://github.com/ef-lab/ethopy_hardware/tree/main/Ball)
