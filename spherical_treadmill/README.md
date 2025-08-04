@@ -155,4 +155,4 @@ ethopy -p ~/.ethopy/tasks/ball_test.py
 ## Additional Resources
 
 1. **Documentation**
-- [EthoPy Hardware: Ball](https://github.com/ef-lab/ethopy_hardware/tree/main/Ball)
+- [EthoPy Hardware: Spherical Treadmill](https://github.com/ef-lab/ethopy_hardware/blob/main/Spherical_Treadmill/spherical_treadmill_instructions.md)
