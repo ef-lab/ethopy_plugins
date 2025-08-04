@@ -270,6 +270,18 @@ User must define the 2 models:
 - **corners**: Detects 4 arena corners for coordinate transformation
 pretrained models are at folder [models](https://github.com/ef-lab/ethopy_plugins/tree/main/openfield)
 
+### Pre-trained Models Available
+
+We provide pre-trained DeepLabCut models for immediate use in your OpenField experiments. These models have been trained on diverse datasets and provide robust tracking performance across different experimental conditions:
+
+- **Bodyparts tracking models**: High-accuracy models for nose and ear detection in mice and rats
+- **Arena corner detection models**: Reliable corner detection for automatic arena calibration
+- **Species-specific models**: Optimized models for different animal species and arena configurations
+
+**Access Code Required**: To download the trained models, please contact us for the access code. The models are available at: https://ef-storage02.quickconnect.to/d/s/14RtggHCRtNAPtSbrJfKykIxmACL31iM/-PGcFplAZuzFcI0NoefmPbAI0yDqtlOv-67iAmjDOeww
+
+Please request access by providing your research institution and intended use case.
+
 #### 4. **SetupConfigurationArena.Screen** - Visual Display Setup
 **User must populate:** Screen position relative to arena. If a different screen will be used it should be defined in the **Configuration.Screen** and define the appropriate setup_conf_idx.
 
