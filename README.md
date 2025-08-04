@@ -95,7 +95,7 @@ ethopy --log-console --log-level DEBUG -p /path_to_your_conf_file/plugin_task.py
 ## Additional Resources
 
 1. **Documentation**
-- [Ethopy Plugin system](https://ef-lab.github.io/ethopy_package/plugin/)
+- [Ethopy Plugin system](https://ef-lab.github.io/ethopy_package/plugin.html)
 - [EthoPy Documentation](https://ef-lab.github.io/ethopy_package/)
 - [DataJoint Documentation](https://docs.datajoint.org/)
 
