@@ -76,7 +76,7 @@ The PsychoPresenter util handles the monitor parameters about how stimuli are pr
 
 ```python
 # In PsychoGrating stimuli
-from ethopy.utils.psycho_presenter import Presenter
+from ethopy.stimuli.psycho_presenter import Presenter
 
 # import in task configuration
 from ethopy.stimuli.psycho_grating import PsychoGrating
@@ -103,7 +103,7 @@ The `task` configuration file sets up the experiment parameters and stimulus con
 1. **Start EthoPy with task**:
 
 ```bash
-ethopy -p ~/.ethopy/tasks/psychopy_test.py
+ethopy -p ~/.ethopy/ethopy_plugins/psychopy/task/psychopy_test.py --log-console
 ```
 
 2. **Monitor the experiment**:

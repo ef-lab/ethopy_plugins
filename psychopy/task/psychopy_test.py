@@ -1,8 +1,6 @@
 from ethopy.experiments.match_to_sample import Experiment
 from ethopy.stimuli.psycho_grating import PsychoGrating
 from ethopy.behaviors.multi_port import MultiPort
-from ethopy.core import logger
-
 
 # define session parameters
 session_params = {
@@ -28,7 +26,6 @@ key = {
 
 conditions = []
 
-
 Grating_Stimuli = PsychoGrating()
 Grating_Stimuli.fill_colors.ready = []
 Grating_Stimuli.fill_colors.background = []
@@ -42,7 +39,6 @@ Grating_Stimuli.fill_colors.set(
         "ready": (0.3, 0.3, 0.3),
         "reward": (0.9, 0.9, 0.9),
         "punish": (0, 0, 0),
-        "delay": (0.2, 0.2, 0.2),
     }
 )
 

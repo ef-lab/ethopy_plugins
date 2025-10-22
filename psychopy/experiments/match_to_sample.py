@@ -16,8 +16,8 @@ class Condition(dj.Manual):
         max_reward=3000             : smallint
         min_reward=500              : smallint
         hydrate_delay=0             : int # delay hydration in minutes
-    
-        trial_selection='staircase' : enum('fixed','block','random','staircase', 'biased') 
+
+        trial_selection='staircase' : enum('fixed','block','random','staircase', 'biased')
         difficulty                  : int   
         bias_window=5               : smallint
         staircase_window=20         : smallint
@@ -27,9 +27,9 @@ class Condition(dj.Manual):
         incremental_punishment=1    : tinyint(1)
         next_up=0                   : tinyint
         next_down=0                 : tinyint
-        metric='accuracy'           : enum('accuracy','dprime') 
+        metric='accuracy'           : enum('accuracy','dprime')
         antibias=1                  : tinyint(1)
-        
+
         init_ready                  : int
         cue_ready                   : int
         delay_ready                 : int
@@ -40,7 +40,7 @@ class Condition(dj.Manual):
         response_duration           : int
         reward_duration             : int
         punish_duration             : int
-        abort_duration              : int 
+        abort_duration              : int
         """
 
 
@@ -63,6 +63,9 @@ class Experiment(State, ExperimentClass):
         "reward_duration": 2000,
         "punish_duration": 1000,
         "abort_duration": 0,
+        "noresponse_intertrial": 0,
+        "incremental_punishment": 1,
+        **ExperimentClass.Block().dict(),
     }
 
     def entry(
@@ -103,7 +106,7 @@ class PreTrial(Experiment):
             return "Exit"
         elif (
             is_sleep_time
-            and not self.beh.is_hydrated(self.params["min_reward"])
+            and not self.beh.is_hydrated(self.session_params["min_reward"])
             and self.curr_trial > 1
         ):  # find a better method to illustrate that the session is running (not curr_trial)
             return "Hydrate"
@@ -137,6 +140,8 @@ class Cue(Experiment):
             return "Delay"
         elif self.response:
             return "Abort"
+        elif elapsed_time > self.curr_cond["cue_duration"]:
+            return "Abort"
         elif self.is_stopped():  # if wake up then update session
             return "Exit"
         else:
@@ -149,9 +154,11 @@ class Cue(Experiment):
 class Delay(Experiment):
     def entry(self):
         self.stim.prepare(self.curr_cond, "Delay")
+        self.stim.start()
         super().entry()
 
     def run(self):
+        self.stim.present()
         self.response = self.beh.get_response(self.start_time)
         if self.beh.is_ready(self.curr_cond["delay_ready"], self.start_time):
             self.resp_ready = True
@@ -160,7 +167,7 @@ class Delay(Experiment):
         if (
             self.resp_ready
             and self.state_timer.elapsed_time() > self.curr_cond["delay_duration"]
-        ):  # this specifies the minimum amount of time we want to spend in the delay period contrary to the cue_duration FIX IT
+        ):  # ToDo:minimum amount of time we want to spend in the delay period contrary to the cue_duration
             return "Response"
         elif self.response:
             return "Abort"
@@ -225,7 +232,8 @@ class Abort(Experiment):
 class Reward(Experiment):
     def entry(self):
         super().entry()
-        self.stim.reward_stim()
+        # self.stim.reward_stim()
+        pass
 
     def run(self):
         self.rewarded = self.beh.reward(self.start_time)
@@ -247,11 +255,12 @@ class Punish(Experiment):
         self.beh.punish()
         super().entry()
         self.punish_period = self.curr_cond["punish_duration"]
-        if self.params.get("incremental_punishment"):
+        if self.curr_cond.get("incremental_punishment"):
             self.punish_period *= self.beh.get_false_history()
 
     def run(self):
-        self.stim.punish_stim()
+        # self.stim.punish_stim()
+        pass
 
     def next(self):
         if self.state_timer.elapsed_time() >= self.punish_period:
@@ -274,7 +283,7 @@ class InterTrial(Experiment):
         if self.is_stopped():
             return "Exit"
         elif self.beh.is_sleep_time() and not self.beh.is_hydrated(
-            self.params["min_reward"]
+            self.session_params["min_reward"]
         ):
             return "Hydrate"
         elif self.beh.is_sleep_time() or self.beh.is_hydrated():
@@ -284,8 +293,8 @@ class InterTrial(Experiment):
         else:
             return "InterTrial"
 
-    def exit(self):
-        self.stim.fill()
+    # def exit(self):
+    #     self.stim.fill()
 
 
 class Hydrate(Experiment):
@@ -293,7 +302,7 @@ class Hydrate(Experiment):
         if (
             self.beh.get_response()
             and self.state_timer.elapsed_time()
-            > self.params["hydrate_delay"] * 60 * 1000
+            > self.session_params["hydrate_delay"] * 60 * 1000
         ):
             self.stim.ready_stim()
             self.beh.reward()
@@ -303,7 +312,7 @@ class Hydrate(Experiment):
         if self.is_stopped():  # if wake up then update session
             return "Exit"
         elif (
-            self.beh.is_hydrated(self.params["min_reward"])
+            self.beh.is_hydrated(self.session_params["min_reward"])
             or not self.beh.is_sleep_time()
         ):
             return "Offtime"
@@ -326,24 +335,15 @@ class Offtime(Experiment):
         time.sleep(1)
 
     def next(self):
-        print(
-            "self.logger.setup_status",
-            self.logger.setup_status,
-            self.beh.is_sleep_time,
-            self.beh.is_hydrated,
-        )
         if self.is_stopped():  # if wake up then update session
-            print("DEBUG: Transitioning to Exit due to stop condition")
             return "Exit"
         elif self.logger.setup_status == "wakeup" and not self.beh.is_sleep_time():
             return "PreTrial"
         elif (
             self.logger.setup_status == "sleeping" and not self.beh.is_sleep_time()
         ):  # if wake up then update session
-            print("DEBUG: Transitioning to Exit due to wakeup condition")
             return "Exit"
         elif not self.beh.is_hydrated() and not self.beh.is_sleep_time():
-            print("DEBUG: Transitioning to Exit due to dehydration")
             return "Exit"
         else:
             return "Offtime"

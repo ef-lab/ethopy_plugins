@@ -3,7 +3,7 @@ import datajoint as dj
 
 from ethopy.core.logger import stimulus
 from ethopy.core.stimulus import Stimulus
-from ethopy.utils.psycho_presenter import Presenter
+from ethopy.stimuli.psycho_presenter import Presenter
 from ethopy.utils.helper_functions import iterable
 
 
@@ -28,22 +28,25 @@ class PsychoGrating(Stimulus, dj.Manual):
     duration        : smallint                       # grating duration (seconds)
     """
 
-    cond_tables = ["PsychoGrating"]
-    required_fields = ["ori", "sf", "duration"]
-    default_key = {
-        "pos_x": 0,
-        "pos_y": 0,
-        "tex": "sin",
-        "units": "deg",
-        "size": 100,
-        "mask": "gauss",
-        "tf": 0.5,
-        "phase": 0,
-        "contrast": 1,
-        "warper": 1,
-    }
+    def __init__(self):
+        super().__init__()
+        self.cond_tables = ["PsychoGrating"]
+        self.required_fields = ["ori", "sf", "duration"]
+        self.default_key = {
+            "pos_x": 0,
+            "pos_y": 0,
+            "tex": "sin",
+            "units": "deg",
+            "size": 100,
+            "mask": "gauss",
+            "tf": 0.5,
+            "phase": 0,
+            "contrast": 1,
+            "warper": 1,
+            "opacity": 1,
+        }
 
-    def setup(self):
+    def setup(self, config=None):
         self.flag_no_stim = False
         """setup stimulation for presentation before experiment starts"""
         self.Presenter = Presenter(
