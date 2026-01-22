@@ -43,11 +43,11 @@ class Olfactory(Stimulus, dj.Manual):
     def __init__(self):
         super().__init__()
         self.fill_colors.set({'background': (0, 0, 0),
-                              'start': (32, 32, 32),
-                              'ready': (64, 64, 64),
-                              'reward': (128, 128, 128),
+                              'start': (0.2, 0.2, 0.2),
+                              'ready':  (0.3, 0.3, 0.3),
+                              'reward': (0.6, 0.6, 0.6),
                               'punish': (0, 0, 0)})
-        
+
     def start(self):
         delivery_port = self.curr_cond['delivery_port']
         odor_id = self.curr_cond['odorant_id']
