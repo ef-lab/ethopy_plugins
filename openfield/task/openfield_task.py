@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import interpolate
 
-from ethopy.behaviors.openField import OpenField
+from ethopy.behaviors.openfield import OpenField
 from ethopy.experiments.approach import Experiment
 from ethopy.stimuli.panda import Panda
 
