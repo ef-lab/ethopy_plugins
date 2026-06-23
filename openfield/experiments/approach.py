@@ -176,7 +176,7 @@ class Punish(Experiment):
         self.beh.punish()
         super().entry()
         self.punish_period = self.curr_cond["punish_duration"]
-        if self.params.get("incremental_punishment"):
+        if self.curr_cond["incremental_punishment"]:
             self.punish_period *= self.beh.get_false_history()
 
     def run(self):
