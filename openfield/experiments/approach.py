@@ -196,13 +196,15 @@ class Punish(Experiment):
 
 class InterTrial(Experiment):
     def run(self):
-        if self.beh.is_licking() and self.params.get("noresponse_intertrial"):
+        if self.beh.is_licking() and self.curr_cond["noresponse_intertrial"]:
             self.state_timer.start()
 
     def next(self):
         if self.is_stopped():
             return "Exit"
-        elif self.beh.is_sleep_time() and not self.beh.is_hydrated(self.params['min_reward']):
+        elif self.beh.is_sleep_time() and not self.beh.is_hydrated(
+            self.session_params["min_reward"]
+        ):
             return 'Hydrate'
         elif self.beh.is_sleep_time() or self.beh.is_hydrated():
             return 'Offtime'
