@@ -36,12 +36,11 @@ class Olfactory(Stimulus, dj.Manual):
         dutycycle            : int                      # odor dutycycle
         """
 
-    cond_tables = ['Olfactory', 'Olfactory.Channel']
-    required_fields = ['odor_duration', 'odorant_id', 'delivery_port']
-    default_key = {'dutycycle': 50}
-
     def __init__(self):
         super().__init__()
+        self.cond_tables = ['Olfactory', 'Olfactory.Channel']
+        self.required_fields = ['odor_duration', 'odorant_id', 'delivery_port']
+        self.default_key = {'dutycycle': 50}
         self.fill_colors.set({'background': (0, 0, 0),
                               'start': (0.2, 0.2, 0.2),
                               'ready':  (0.3, 0.3, 0.3),
