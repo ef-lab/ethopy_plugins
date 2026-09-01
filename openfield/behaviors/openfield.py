@@ -423,7 +423,7 @@ class ConfigurationArena(dj.Manual):
     definition = """
     # Camera information
     arena_idx                : tinyint
-    -> behavior.Configuration
+    -> interface.Configuration
     ---
     size                      : int
     discription               : varchar(256)

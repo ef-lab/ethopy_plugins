@@ -2,7 +2,7 @@ import psychopy.visual
 import datajoint as dj
 
 from ethopy.core.logger import stimulus
-from ethopy.core.stimulus import Stimulus
+from ethopy.core.stimulus import Stimulus, StimCondition
 from ethopy.stimuli.psycho_presenter import Presenter
 from ethopy.utils.helper_functions import iterable
 

@@ -1,7 +1,7 @@
 import datajoint as dj
 
 from ethopy.core.logger import stimulus
-from ethopy.core.stimulus import Stimulus
+from ethopy.core.stimulus import Stimulus, StimCondition
 
 
 @stimulus.schema
